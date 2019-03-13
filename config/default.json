@@ -1,0 +1,74 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "85721cbb12f31fad2879072c8e53e50e528e82aa389d2ce2af44cd11ced51e6c513204b87ddb49ccb5d75c3fda21e6b749f8ad1279aa8f92acc0e2b8911fe415d73c1fbc7997aa578865c91478af173fa668a0052d7c5767e7cdc078abad176fe8c31b91070eab414a5aa7cb65211f475fd3d8d7b8033f3ad14dd77c847906b2def84260acb8374ed3b34656463899543df97b2b3084e6b9dfeda4810d7270238a459f3d75459220bd2eacd74fb0d37e5cf34773fbbf1432aa24cb5dbf61b17e87fb76a4eaa2f13c4ecefd65e71c62f2df83ea6fe199d9d7ab30dbc635aa6a0f83f040e6efc065780cc445e687d166e676a6dfd9427e3f8dec9e145e97a036c6",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "successRedirect": "/",
+      "scope": [
+        "public_profile",
+        "email"
+      ],
+      "profileFields": [
+        "id",
+        "displayName",
+        "first_name",
+        "last_name",
+        "email",
+        "gender",
+        "profileUrl",
+        "birthday",
+        "picture",
+        "permissions"
+      ]
+    },
+    "github": {
+      "clientID": "your github client id",
+      "clientSecret": "your github client secret",
+      "successRedirect": "/"
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  },
+  "postgres": "postgres://postgres:@localhost:5432/kron1s_api_server"
+}
